@@ -1,8 +1,8 @@
 import os
 import sys
 
-BOOK_PATH = '/book/book.txt'
-PAGE_SIZE = 1050
+BOOK_PATH = 'book/book.txt'
+PAGE_SIZE = 800
 
 book: dict[int, str] = {}
 
@@ -11,7 +11,6 @@ book: dict[int, str] = {}
 def _get_part_text(text: str, start: int, size: int) -> tuple[str, int]:
     valid_end_simbols = ',.!:;?'
     text = text[start:size+start]  # обрезаем текст слева
-    print(len(text))
     while len(text) > size or text[-1] not in valid_end_simbols:
         max_sybl = max(map(text.rfind, valid_end_simbols))
         text = text[:text.rfind(' ')] \
